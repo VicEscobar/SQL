@@ -1,0 +1,30 @@
+SELECT price AS "Price", item_name AS "Item"
+FROM superstore
+GROUP BY(price)
+ORDER BY(price)desc;
+
+-- STATISTICS
+-- -- SUM
+SELECT SUM(price) AS "Total Cost"
+FROM superstore;
+
+-- -- AVERAGE
+SELECT AVG(price) AS "Average Price"
+FROM superstore;
+
+-- -- MIN
+SELECT MIN(price) AS "Minimum Price"
+FROM superstore;
+
+-- -- MAX 
+SELECT MAX(price) AS "Maximum Price"
+FROM superstore;
+
+-- -- COUNT
+SELECT COUNT(stock_quantity) AS "Overall Inventory"
+FROM superstore;
+
+-- -- KITCHEN SUPPLIES
+SELECT item_name, stock_quantity
+FROM superstore
+WHERE category = 'Kitchen Supplies';
