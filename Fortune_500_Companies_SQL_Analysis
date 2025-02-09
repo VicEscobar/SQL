@@ -1,0 +1,61 @@
+/* Categorizing Companies Based on Revenue Size */
+SELECT COUNT(*) AS Number_of_Companies,
+CASE 
+	WHEN revenue > 400 THEN 'Large'
+    WHEN revenue BETWEEN 200 AND 400 THEN 'Medium'
+    ELSE 'Small'
+END
+	AS Revenue_Category
+FROM fortune_companies
+GROUP BY Revenue_Category
+ORDER BY Revenue_Category DESC;
+
+
+/* Identifying Industries Where Average Employees Tenure is Greater Than 6 Years */
+SELECT industry, ROUND(AVG(avg_employee_tenure),1) AS Average_Tenure
+FROM fortune_companies
+GROUP BY industry
+HAVING AVG(avg_employee_tenure) > 6
+ORDER BY avg_employee_tenure DESC
+
+
+/* Finding companies that offer good benefits - both healthcare and generous PTO */
+
+SELECT company_name, industry, paid_time_off_days, healthcare_benefits
+FROM fortune_companies
+WHERE healthcare_benefits = 1 AND paid_time_off_days >= 20
+ORDER BY paid_time_off_days DESC;
+
+
+/* Using Aggregate Functions for Summary Statistics -
+Total Revenue and Average Employee Count per Industry*/
+
+SELECT industry AS Industry, ROUND(SUM(revenue)) AS Average_Revenue, ROUND(AVG(employees))AS Average_Number_of_Employees
+FROM fortune_companies
+GROUP BY industry
+ORDER BY Average_Revenue DESC;
+
+
+/* Finding Companies with the Most and Least Employees*/
+
+SELECT company_name, industry, employees
+FROM fortune_companies
+WHERE employees = (SELECT MAX(employees) FROM fortune_companies)
+	OR employees = (SELECT MIN(employees) FROM fortune_companies);
+	
+	
+/* Finding Companies with best Maternity Leave*/
+
+SELECT company_name, industry, maternity_leave_weeks
+FROM fortune_companies
+ORDER BY maternity_leave_weeks DESC
+LIMIT 5;
+
+
+/* Comparing Revenue vs. Employee Size -
+Which Companies Have the Highest Revenue Per Employee*/
+
+SELECT company_name, industry, employees,ROUND((revenue/employees),3) AS Revenue_Per_Employee
+FROM fortune_companies
+ORDER BY Revenue_Per_Employee DESC
+LIMIT 10
