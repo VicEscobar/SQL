@@ -20,3 +20,8 @@ The dataset consists of the following columns:
 1. Categorizing Companies by Revenue Size - This query groups companies into revenue categories (Small, Medium, Large) based on their total revenue.
    <ins>**Insight**</ins> : This categorization helps identify how many companies fall into each revenue tier.
 2. Industries with High Employee Retention - Finds industries where employees stay longer than 6 years on average. <ins>**Insight**</ins>: This can help job seekers identify stable industries with higher retention rates.
+3. Companies Offering the Best Employee Benefits - Filters for companies that provide both healthcare and more than 20 PTO days. <ins>**Insight**:</ins> Useful for job seekers looking for the best employee benefits.
+4. Total Revenue and Employee Count by Industry - Summarizes the total revenue and average employee count per industry. <ins>**Insight**:</ins>
+5. Largest & Smallest Companies by Employee Count - Finds companies with the highest and lowest number of employees. <ins>**Insight**:</ins> Useful for benchmarking company sizes.
+6. Companies with the Best Maternity Leave Policies - Lists the top 5 companies with the longest maternity leave. <ins>**Insight**:</ins> Highlights companies that support working parents.
+7. Revenue Per Employee Efficiency - Finds companies that generate the highest revenue per employee. <ins>**Insight**:</ins> Reveals the most financially efficient companies in the dataset. 
